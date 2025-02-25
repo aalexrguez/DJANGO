@@ -3,24 +3,14 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     
-    entrenadores = [
-        'Joel Marquez',
-        'Alonso Quintana',
-        'Omar Chavez'
-    ]
-    Horario = [
-        '8:00 - 9:00',
-        '10:00 - 12:00'
-    ]
-    clientes = [
-        'Alex Rodriguez',
-        'Andres Ramos',
-        'Cristian Villa'
+    productos = [
+        'Reloj Citizen',
+        'Playera del Barcelona',
+        'Crema para piel'
     ]
     context = {
-       "entrenador":entrenadores,
-       "horario":Horario,
-       "clientes":clientes
+       "products":productos,
+       
     }
     return render(request,'shopApp/index.html',context)
 
