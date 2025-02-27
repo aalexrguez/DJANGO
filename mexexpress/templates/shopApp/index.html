@@ -59,12 +59,11 @@
             <span class="carousel-control-next-icon"></span>
         </button>
     </div>
-
-    <h3>{{speacial_offers}}</h3>
     
     <!-- Tabla de ofertas -->
     <div class="container my-4">
         <h2 class="text-center">Ofertas Especiales</h2>
+        {% for products in speacial_offers %}
         <table class="table table-striped table-bordered">
             <thead class="">
                 <tr>
@@ -76,16 +75,12 @@
             <tbody>
                 <tr>
                     <td><img src="https://placehold.co/100" alt="Producto 1"></td>
-                    <td>Producto 1</td>
-                    <td>$10.99</td>
-                </tr>
-                <tr>
-                    <td><img src="https://placehold.co/100" alt="Producto 2"></td>
-                    <td>Producto 2</td>
-                    <td>$20.99</td>
+                    <td>{{products.name}}</td>
+                    <td>{{products.cost}}</td>
                 </tr>
             </tbody>
         </table>
+        {% endfor %}
     </div>
     
     <!-- Cards de productos -->

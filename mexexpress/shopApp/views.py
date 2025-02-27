@@ -15,6 +15,10 @@ def index(request):
          {
              'name' : 'Consola de videojuegos Xbox',
              'cost' : 500.00
+         },
+         {
+             'name' : 'RTX 3060',
+             'cost' : 350.00
          }
     ]
     context = {
