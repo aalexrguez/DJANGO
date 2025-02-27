@@ -4,12 +4,23 @@ from django.http import HttpResponse
 def index(request):
     
     productos = [
-        'Reloj Citizen',
-        'Playera del Barcelona',
-        'Crema para piel'
+        { 
+         'name' : 'Relog Citizen',
+         'cost' : 150.00
+         },
+         {
+             'name' : 'Peluche de Batman',
+             'cost' : 35.00
+         },
+         {
+             'name' : 'Consola de videojuegos Xbox',
+             'cost' : 500.00
+         }
     ]
     context = {
-       "products":productos,
+        "user" : "Alex",
+       "speacial_offers": productos
+       
        
     }
     return render(request,'shopApp/index.html',context)
