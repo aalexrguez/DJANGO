@@ -63,7 +63,6 @@
     <!-- Tabla de ofertas -->
     <div class="container my-4">
         <h2 class="text-center">Ofertas Especiales</h2>
-        {% for products in speacial_offers %}
         <table class="table table-striped table-bordered">
             <thead class="">
                 <tr>
@@ -72,6 +71,7 @@
                     <th>Precio</th>
                 </tr>
             </thead>
+            {% for products in speacial_offers %}
             <tbody>
                 <tr>
                     <td><img src="https://placehold.co/100" alt="Producto 1"></td>
@@ -79,15 +79,16 @@
                     <td>{{products.cost}}</td>
                 </tr>
             </tbody>
+            {% endfor %}
         </table>
-        {% endfor %}
+        
     </div>
     
     <!-- Cards de productos -->
     <div class="container my-4 justify-content-center">
         <h2 class="text-center">Productos Destacados</h2>
-        {% for products in speacial_offers %}
         <div class="row">
+            {% for products in speacial_offers %}
             <div class="col-12 col-md-4 col-lg-3 mb-4">
                 <div class="card">
                     <img src="https://placehold.co/300" class="card-img-top" alt="Producto">
@@ -100,9 +101,8 @@
                     </div>
                 </div>
             </div>
-            
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
     
     <!-- Footer -->
