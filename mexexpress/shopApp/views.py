@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
+from .models import Product
 # Create your views here.
 def index(request):
-    
+    product_list = Product.objects.all()
     productos = [
         { 
          'name' : 'Relog Citizen',
@@ -27,7 +28,7 @@ def index(request):
     ]
     context = {
         "user" : "Alex",
-       "speacial_offers": productos
+       "speacial_offers": product_list
        
        
     }

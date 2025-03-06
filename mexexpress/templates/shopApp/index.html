@@ -74,9 +74,9 @@
             <tbody>
                 {% for products in speacial_offers %}
                 <tr>
-                    <td><img src="{{products.image}}" width="100px" alt="Producto 1"></td>
-                    <td>{{products.name}}</td>
-                    <td>{{products.cost}}</td>
+                    <td><img src="#" width="100px" alt="Producto 1"></td>
+                    <td>{{products.product_name}}</td>
+                    <td>${{products.product_full_cost}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -91,10 +91,17 @@
             {% for products in speacial_offers %}
             <div class="col-12 col-md-4 col-lg-3 mb-4">
                 <div class="card">
-                    <img src="{{products.image}}" width="100px" class="card-img-top" alt="Producto">
+                    <img src="#" width="100px" class="card-img-top" alt="Producto">
                     <div class="card-body">
-                        <h5 class="card-title">{{products.name}}</h5>
-                        <p class="card-text">${{products.cost}}</p>
+                        <h5 class="card-title">{{products.product_name}}</h5>
+                        <p class="card-text">
+                            {% if products.product_is_offer %}
+                            <del style="color: gray;">${{products.product_full_cost}}</del>
+                            <b>{{products.product_offer_cost}}</b>
+                            {% else %}
+                            <b>${{products.product_full_cost}}</b>
+                            {% endif %}
+                        </p>
                         <button class="btn w-100">
                             Comprar
                          </button>
