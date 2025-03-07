@@ -11,7 +11,7 @@ import random
 from shopApp.models import Product
 
 
-faker_generator = Faker()
+faker_generator = Faker() # se crear el objeto faker
 
 if __name__ == '__main__':
     print('Empezar a poblar la base de datos')
