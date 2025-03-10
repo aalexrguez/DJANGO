@@ -4,6 +4,7 @@ from .models import Product
 # Create your views here.
 def index(request):
     product_list = Product.objects.all()
+    speacial_offers = Product.objects.filter(product_is_offer=True)
     productos = [
         { 
          'name' : 'Relog Citizen',
@@ -28,7 +29,8 @@ def index(request):
     ]
     context = {
         "user" : "Alex",
-       "speacial_offers": product_list
+       "speacial_offers": speacial_offers,
+       "product_list":product_list
        
        
     }
