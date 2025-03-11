@@ -36,3 +36,5 @@ def index(request):
     }
     return render(request,'shopApp/index.html',context)
 
+def about(request):
+    return render(request,'shopApp/about.html')
