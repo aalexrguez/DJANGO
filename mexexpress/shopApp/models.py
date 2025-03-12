@@ -19,3 +19,13 @@ class HistoricalCost(models.Model):
 
     def __str__(self):
         return self.product.product_name + " " + self.chance_date.strftime('%Y-$m-%d %H:%M')
+
+
+class Contacts(models.Model):
+    full_name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    phone = models.CharField(max_length=15)
+    activate = models.BooleanField()
+
+    def __str__(self):
+        return self.full_name
