@@ -8,7 +8,7 @@ django.setup()
 #script para poblar la tabla Product
 from faker import Faker
 import random
-from shopApp.models import Product
+from shopApp.models import Product,Contacts
 
 
 faker_generator = Faker() # se crear el objeto faker
@@ -28,6 +28,19 @@ def populate_products(n_products=5):
             product_full_cost = fake_full_cost,
             product_is_offer = fake_is_offer,
             product_offer_cost = fake_offer_cost
+        )
+def populate_contacts(n_contacts):
+    for i in range(n_contacts):
+        fake_name = faker_generator.name()
+        fake_address = faker_generator.address()
+        fake_phone = faker_generator.phone_number[:15]
+        fake_activate = faker_generator.boolean()
+
+        contact = Contacts.objects.get_or_create(
+            contact_full_name = fake_name,
+            contact_address = fake_address,
+            contact_phone = fake_phone,
+            contact_activate = fake_activate
         )
 
 if __name__ == '__main__':

@@ -22,10 +22,10 @@ class HistoricalCost(models.Model):
 
 
 class Contacts(models.Model):
-    full_name = models.CharField(max_length=255)
-    address = models.CharField(max_length=255)
-    phone = models.CharField(max_length=15)
-    activate = models.BooleanField()
+    contact_full_name = models.CharField(max_length=255)
+    contact_address = models.CharField(max_length=255)
+    contact_phone = models.CharField(max_length=15)
+    contact_activate = models.BooleanField()
 
     def __str__(self):
         return self.full_name
