@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
-from .models import Product
+from .models import Product,Contacts
 # Create your views here.
 def index(request):
     product_list = Product.objects.all()
@@ -37,4 +37,8 @@ def index(request):
     return render(request,'shopApp/index.html',context)
 
 def about(request):
-    return render(request,'shopApp/about.html')
+    contacts_list = Contacts.objects.all()
+    context = {
+        'contacts': contacts_list
+    }
+    return render(request,'shopApp/about.html',context)
