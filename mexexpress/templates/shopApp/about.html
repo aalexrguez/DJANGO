@@ -1,4 +1,22 @@
 {% extends 'shopApp/base.html' %}
 {% block content %}
-<h1>prueba</h1>
+<center><h1>Lista de contactos</h1></center>
+<table class="table table-bordered border-primary">
+    <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for contact in contacts %}
+        <tr>
+          <td>{{contact.full_name}}</td>
+          <td>{{contact.address}}</td>
+          <td>{{contact.phone}}</td>
+        </tr>
+        {% endfor %}
+       </tbody>
+  </table>
 {% endblock %}
