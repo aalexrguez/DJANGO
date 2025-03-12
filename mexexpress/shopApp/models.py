@@ -28,4 +28,4 @@ class Contacts(models.Model):
     contact_activate = models.BooleanField()
 
     def __str__(self):
-        return self.full_name
+        return self.contact_full_name
