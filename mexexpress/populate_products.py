@@ -33,7 +33,7 @@ def populate_contacts(n_contacts):
     for i in range(n_contacts):
         fake_name = faker_generator.name()
         fake_address = faker_generator.address()
-        fake_phone = faker_generator.phone_number[:15]
+        fake_phone = faker_generator.phone_number()[:15]
         fake_activate = faker_generator.boolean()
 
         contact = Contacts.objects.get_or_create(
@@ -45,5 +45,5 @@ def populate_contacts(n_contacts):
 
 if __name__ == '__main__':
     print('Empezar a poblar la base de datos')
-    populate_products(20)
+    populate_contacts(30)
     print('finalizado')
