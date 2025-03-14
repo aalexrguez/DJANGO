@@ -34,12 +34,14 @@ def populate_contacts(n_contacts):
         fake_name = faker_generator.name()
         fake_address = faker_generator.address()
         fake_phone = faker_generator.phone_number()[:15]
+        fake_email = faker_generator.email()
         fake_activate = faker_generator.boolean()
 
         contact = Contacts.objects.get_or_create(
             contact_full_name = fake_name,
             contact_address = fake_address,
             contact_phone = fake_phone,
+            contact_email = fake_email,
             contact_activate = fake_activate
         )
 
