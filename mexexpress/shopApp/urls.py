@@ -1,6 +1,9 @@
 from django.urls import path
-from shopApp.views import index
+from shopApp.views import index,about
+
+app_name = 'app'
 
 urlpatterns = [
-    path('',index)
+    path('',index,name='index'),
+    path('about/',about,name='about')
 ]
