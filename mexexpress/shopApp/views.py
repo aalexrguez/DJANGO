@@ -37,7 +37,7 @@ def index(request):
     return render(request,'shopApp/index.html',context)
 
 def about(request):
-    contacts_list = Contacts.objects.filter(contact_activate=True)
+    contacts_list = Contacts.objects.filter(contact_activate=True).order_by("contact_full_name")
     context = {
         'contacts': contacts_list
     }

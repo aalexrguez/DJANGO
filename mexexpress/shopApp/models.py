@@ -18,7 +18,7 @@ class HistoricalCost(models.Model):
     product_is_offer = models.BooleanField()
 
     def __str__(self):
-        return self.product.product_name + " " + self.chance_date.strftime('%Y-$m-%d %H:%M')
+        return self.product.product_name + " " + self.chance_date.strftime('%Y-%m-%d %H:%M')
 
 
 class Contacts(models.Model):
