@@ -25,19 +25,21 @@
                     <button class="btn btn-outline-light text-light" type="submit">Buscar</button>
                 </form>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <button class="btn btn-link ms-3 text-light">
-                        {% if user == "guest" %}
-                            Iniciar Sesion
+                   
+                        {% if user.is_authenticated %}
+                            <a onclick="document.getElementById('logout_form').submit();" class="btn btn-link ms-3 text-light">Hola {{user}}</a>
                         {% else %}
-                            Hola {{user}}
+                            <a href="{% url 'login' %}" class="btn btn-link ms-3 text-light">Iniciar Sesion</a>
                         {% endif %}
-                    </button>
+                 
                     <button class="btn btn-link ms-3 text-light" >
                         <a href="{%url 'app:about'%}" class="btn btn-link ms-3 text-light" >About</a>
                     </button>
                     <button class="btn btn-link ms-3 text-light">Carrito</button>
                 </ul>
-                
+                <form id="logout_form" style="display: none;" action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                </form>
             </div>
         </div>
     </nav>

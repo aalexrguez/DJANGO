@@ -1,9 +1,10 @@
 from django.urls import path
-from shopApp.views import index,about
+from . import views
 
 app_name = 'app'
 
 urlpatterns = [
-    path('',index,name='index'),
-    path('about/',about,name='about')
+    path('',views.index,name='index'),
+    path('about/',views.about,name='about'),
+    path('form_comment/',views.form_comment,name='form_comment')
 ]
