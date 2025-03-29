@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse 
 from .models import Product,Contacts
-from .forms import FormComment
+from .forms import FormComment,FormContact
+from django.urls import reverse
 # Create your views here.
 def index(request):
     product_list = Product.objects.all()
@@ -55,3 +56,25 @@ def form_comment(request):
         'form':form
     }
     return render(request,'shopApp/form_comment.html',context)
+
+def form_contact(request):
+    frmContact = FormContact()
+
+    if request.method == 'POST':
+        frmContact = FormContact(request.POST)
+        if frmContact.is_valid():
+            dataContact = frmContact.cleaned_data
+            newContact = Contacts()
+            newContact.contact_full_name = dataContact['full_name']
+            newContact.contact_address = dataContact['address']
+            newContact.contact_phone = dataContact['phone']
+            newContact.contact_email = dataContact['email']
+            newContact.contact_activate = dataContact['activate']
+            newContact.save()
+            return redirect('shopapp/about')
+        
+    context = {
+        'frmContact':frmContact
+    }
+
+    return render(request,'shopApp/form_contact.html',context)
