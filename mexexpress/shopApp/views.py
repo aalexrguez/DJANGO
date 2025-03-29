@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
 from .models import Product,Contacts
+from .forms import FormComment
 # Create your views here.
 def index(request):
     product_list = Product.objects.all()
@@ -28,7 +29,6 @@ def index(request):
          }
     ]
     context = {
-        "user" : "Alex",
        "speacial_offers": speacial_offers,
        "product_list":product_list
        
@@ -42,3 +42,16 @@ def about(request):
         'contacts': contacts_list
     }
     return render(request,'shopApp/about.html',context)
+
+def form_comment(request):
+    form = FormComment()
+
+    if request.method == 'POST':
+        form = FormComment(request.POST)
+        if form.is_valid():
+            print('FORMULARIO VALIDO')
+            print('Nombre: ', form.cleaned_data['full_name'])
+    context = {
+        'form':form
+    }
+    return render(request,'shopApp/form_comment.html',context)
