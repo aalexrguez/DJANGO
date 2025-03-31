@@ -71,7 +71,7 @@ def form_contact(request):
             newContact.contact_email = dataContact['email']
             newContact.contact_activate = dataContact['activate']
             newContact.save()
-            return redirect('shopapp/about')
+            return redirect('/shopapp/about/')
         
     context = {
         'frmContact':frmContact
