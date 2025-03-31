@@ -1,9 +1,9 @@
 from django import forms
 
 class FormComment(forms.Form):
-    full_name = forms.CharField()
-    email = forms.EmailField()
-    comment = forms.CharField(widget=forms.Textarea)
+    full_name = forms.CharField(label='Nombre')
+    email = forms.EmailField(label='Email')
+    comment = forms.CharField(label='Comentario',widget=forms.Textarea)
 
 class FormContact(forms.Form):
     full_name = forms.CharField(label="Nombre ",max_length=255,required=True)
